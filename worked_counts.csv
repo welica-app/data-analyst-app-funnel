@@ -1,0 +1,13 @@
+group,step_position,event_name,reached_users,previous_users,dropoff_users,dropoff_rate
+overall,1,room_list_opened,4,,,
+overall,2,room_chosen,3,4,1,0.25
+overall,3,booking_started,2,3,1,0.3333333333333333
+overall,4,booking_submitted,1,2,1,0.5
+mobile,1,room_list_opened,3,,,
+mobile,2,room_chosen,3,3,0,0.0
+mobile,3,booking_started,2,3,1,0.3333333333333333
+mobile,4,booking_submitted,1,2,1,0.5
+desktop,1,room_list_opened,1,,,
+desktop,2,room_chosen,0,1,1,1.0
+desktop,3,booking_started,0,0,0,
+desktop,4,booking_submitted,0,0,0,

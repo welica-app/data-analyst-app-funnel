@@ -1,0 +1,7 @@
+field,type,unit_or_values,definition
+event_id,text,ev_ or ex_ev_ identifier,Stable event identifier repeated on source replay
+user_id,text,app_ or ex_ identifier,Synthetic pseudonymous user identifier
+event_name,text,event catalogue key,Action recorded by the source
+event_time_utc,text,YYYY-MM-DDTHH:MM:SSZ,Event timestamp in UTC
+event_order,positive integer,per user,Source sequence used when timestamps tie
+segment,text,mobile or desktop,Fixed analysis group assigned to the user

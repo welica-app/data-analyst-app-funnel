@@ -1,0 +1,6 @@
+user_id,room_list_opened,room_chosen,booking_started,booking_submitted
+ex_01,ex_ev_01,ex_ev_02,ex_ev_03,ex_ev_04
+ex_02,ex_ev_05,ex_ev_06,ex_ev_08,
+ex_03,ex_ev_09,ex_ev_10,,
+ex_04,ex_ev_13,,,
+ex_05,,,,

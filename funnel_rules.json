@@ -1,0 +1,59 @@
+{
+  "source": "app_events.csv",
+  "row_grain": "one emitted event before replay removal",
+  "person_key": "user_id",
+  "segment_key": "segment",
+  "segments": ["mobile", "desktop"],
+  "segment_assignment": "fixed per user throughout the source",
+  "source_coverage_utc": {
+    "start_inclusive": "2026-09-06T00:00:00Z",
+    "end_exclusive": "2026-09-22T00:00:00Z"
+  },
+  "candidate_cohort_windows_utc": [
+    {"start_inclusive": "2026-09-07", "end_exclusive": "2026-09-14"},
+    {"start_inclusive": "2026-09-14", "end_exclusive": "2026-09-21"}
+  ],
+  "cohort_rule": "earliest qualifying first-step event per user inside the selected midnight-to-midnight UTC window",
+  "followup": {
+    "hours": 24,
+    "anchor": "first qualifying event",
+    "end_inclusive": true
+  },
+  "funnel_steps": [
+    {"position": 1, "event_name": "app_opened"},
+    {"position": 2, "event_name": "signup_started"},
+    {"position": 3, "event_name": "signup_finished"},
+    {"position": 4, "event_name": "first_task_completed"}
+  ],
+  "eligibility": {
+    "next_event": "earliest matching event strictly after the previous qualifying event and within follow-up",
+    "event_sort_key": ["event_time_utc", "event_order"],
+    "distinct_user_per_step": true,
+    "select_from": "users who reached the previous step",
+    "unrelated_events": "ignore"
+  },
+  "replays": {
+    "modes": {
+      "event_id": "retain one row per event_id",
+      "exact_row": "retain one copy of each identical row"
+    },
+    "event_id_conflict": "reject differing rows with the same event_id",
+    "repeated_action": "keep distinct event IDs and use only the first eligible one at each step"
+  },
+  "timestamps": {
+    "format": "YYYY-MM-DDTHH:MM:SSZ",
+    "invalid": "exclude missing or malformed timestamps and count the excluded rows after replay removal",
+    "unresolvable_tie": "reject duplicate event_order for distinct events of the same user",
+    "file_row_order": "ignore"
+  },
+  "metrics": {
+    "reached_users": "distinct qualifying users at this step",
+    "dropoff_users": "previous reached users minus current reached users",
+    "dropoff_rate": "dropoff users divided by previous reached users",
+    "first_step_dropoff": null,
+    "zero_previous_count_rate": null,
+    "zero_previous_count_dropoff_users": 0,
+    "rate_storage": "decimal fraction",
+    "reconciliation": "mobile reached users plus desktop reached users equals overall reached users at every step"
+  }
+}

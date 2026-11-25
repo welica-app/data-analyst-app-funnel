@@ -1,0 +1,21 @@
+{
+  "audience": "app team",
+  "analysis_file": "",
+  "supporting_artifacts": [],
+  "cohort_start_utc": "",
+  "cohort_end_exclusive_utc": "",
+  "focus_segment": "",
+  "largest_supported_dropoff": {
+    "from_event": "",
+    "to_event": "",
+    "previous_users": null,
+    "remaining_users": null,
+    "dropoff_users": null,
+    "dropoff_rate": null
+  },
+  "focus_segment_comparison": "",
+  "observed_finding": "",
+  "limit": "",
+  "hypothesis": "",
+  "follow_up_check": ""
+}

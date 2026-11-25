@@ -1,0 +1,6 @@
+event_name,source_trigger
+app_opened,App entry screen opened
+signup_started,Sign-up form opened
+signup_finished,Account creation confirmed
+first_task_completed,First in-app task marked complete
+help_opened,Help screen opened

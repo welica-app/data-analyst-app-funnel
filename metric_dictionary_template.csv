@@ -1,0 +1,8 @@
+metric_id,display_name,definition,event_name,unit,counting_key,previous_metric,numerator,denominator,cohort_window,followup,eligibility_rule,duplicate_rule,zero_rule,segment_rule,source
+step_1_users,,,,,,,,,,,,,,,
+step_2_users,,,,,,,,,,,,,,,
+step_3_users,,,,,,,,,,,,,,,
+step_4_users,,,,,,,,,,,,,,,
+step_2_dropoff_rate,,,,,,,,,,,,,,,
+step_3_dropoff_rate,,,,,,,,,,,,,,,
+step_4_dropoff_rate,,,,,,,,,,,,,,,
