@@ -66,7 +66,20 @@ py -m venv .venv
 2. Write the other three steps under the first step, which is already written. Each one is a `next_step` call, as in the example. It takes the eligible people from the step before, and puts its result in `project_steps` under the event name of the step it counts.
 3. Set `export_csv = True` to save `project_eligible.csv`, which has one row for each person at each step they reached.
 4. Set `count_in_notebook = True` to count in the notebook and save `project_funnel_counts.csv`. Set it to `False` to count in another tool instead.
-5. Run the whole notebook again. In Colab, choose **Run all** in the **Runtime** menu. In JupyterLab, choose **Run All Cells** in the **Run** menu.
+5. Run your completed notebook from the top. In Colab, choose **Run all** in the **Runtime** menu. In JupyterLab, choose **Run All Cells** in the **Run** menu.
 6. If you set it to `False`, count in one of these. If you used Colab, first download `project_eligible.csv` from the **Files** sidebar into this folder.
    - **SQLite:** you need the SQLite command-line shell installed on your computer. With `project_eligible.csv` in this folder, type `sqlite3 :memory: ".read count_starter.sql"` in a terminal. It counts each step for the whole cohort. You add the segment counts and the rates.
    - **LibreOffice Calc:** open `project_eligible.csv` and `count_template.csv` as comma-separated UTF-8 text. Keep step numbers as numbers, and IDs, event names and times as text. Paste the grid into a second sheet. Count with COUNTIF by step, and with COUNTIFS by step and segment. Fill in the rates using the rule in `funnel_rules.json` for a step nobody reached. Save as ODS to keep the formulas.
+
+
+## Check the notebook from a fresh start
+
+After you have made your counts, note the count at each step and save your notebook. In Colab, open **Runtime** and choose **Restart session and run all**. In JupyterLab, open **Kernel** and choose **Restart Kernel and Run All Cells**. Confirm the restart if asked. If Colab opened a new session and the files are missing from `/content`, upload the eight files again before running the notebook. Use the new export to make your counts again with the same tool. If you count outside Colab, download the new `project_eligible.csv` again first. Check each step against the counts you noted.
+
+## Fill in the finding and choose a check
+
+Open `finding_template.json` in a text editor. Type text between the quote marks that are already there. Replace each `null` that needs a number with that number and leave it outside quote marks. Leave the field names, brackets and commas in place. If a rate has no denominator, leave its value as `null`.
+
+In `observed_finding`, say what the events show. In `limit`, say what they cannot tell you. Put one possible explanation in `hypothesis`. In `follow_up_check`, say what evidence to collect and what result would make that explanation more likely.
+
+For example, a library sees that some readers open its renewal page and do not renew before the due date. Those records do not show why. One possibility is that the renewal button is hard to find. Give two comparable groups the same renewal task, with the button easier to see for one group. Compare how many renew by the same deadline. If more people renew with the clearer button, that supports the idea. Use your own app evidence and a check that fits your explanation.
